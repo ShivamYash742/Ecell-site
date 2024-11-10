@@ -25,4 +25,4 @@ Clone the repository and switch to the desired branch to start working on that s
 
 ### Clone the repository
 ```bash
-git clone https://github.com/ShivamYash742/Ecell-Site.git
+git clone https://github.com/ShivamYash742/Ecell-site.git
