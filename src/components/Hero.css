@@ -1,5 +1,5 @@
 .hero {
-  background-image: url('/path/to/your/hero-image.jpg'); /* Replace with your image path */
+  background-image: url('../assets/react.svg'); /* Replace with your image path */
   background-size: cover;
   background-position: center;
   color: #fff;
