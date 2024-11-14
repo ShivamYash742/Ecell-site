@@ -28,4 +28,4 @@ Clone the repository and switch to the desired branch to start working on that s
 git clone https://github.com/ShivamYash742/Ecell-site.git
 
 
-###mad By Shivam Mishra
+###made By E-Cell MSIT
