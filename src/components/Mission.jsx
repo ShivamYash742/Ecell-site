@@ -1,18 +1,19 @@
 import React from "react";
-import "./Mission.css";
 
 const Mission = () => {
   return (
-    <section className="mission">
-      <div className="mission-text">
-        <h2>Your Success Is Our Mission</h2>
-        <p>
+    <section className="flex gap-10 p-16">
+      <div className="w-3/5">
+        <h2 className="text-4xl font-bold mb-5">Your Success Is Our Mission</h2>
+        <p className="text-base text-gray-600 mb-8">
           Lorem ipsum is simply dummy text of the printing and typesetting industry.
           Lorem Ipsum has been the industry's standard dummy text since the 1500s.
         </p>
-        <button>Read More</button>
+        <button className="bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-500 transition duration-300">Read More</button>
       </div>
-      {/* Add an image of people working or celebrating success here */}
+      {/* <div className="w-2/5">
+        <img src="../assets/mission-image.jpg" alt="Mission" className="w-full h-auto rounded-lg" />
+      </div>*/}
     </section>
   );
 };
