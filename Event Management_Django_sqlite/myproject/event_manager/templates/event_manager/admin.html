@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'event_manager/styles.css' %}">
+    <title>Admin - Event Management</title>
+</head>
+<body>
+
+<h1>Admin Panel</h1>
+
+<h2>Create New Event</h2>
+<form id="eventForm" method="post" action="{% url 'create_event' %}">
+    {% csrf_token %}
+    <input type="text" name="link" placeholder="Event Link" required>
+    <input type="text" name="description" placeholder="Event Description" required>
+    <input type="text" name="image" placeholder="Image URL" required>
+    <button type="submit">Create Event</button>
+</form>
+
+<script>
+    // JavaScript code remains unchanged
+</script>
+
+</body>
+</html>

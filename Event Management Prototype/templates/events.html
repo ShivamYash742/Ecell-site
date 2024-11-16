@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Events - Event Management</title>
+</head>
+<body>
+
+<h1>Events</h1>
+<div id="eventList"></div>
+
+<script>
+    function fetchEvents() {
+        fetch('/api/events')
+            .then(response => response.json())
+            .then(events => {
+                events.forEach(event => addEventToList(event));
+            });
+    }
+
+    function addEventToList(event) {
+        const eventList = document.getElementById('eventList');
+        const eventBox = document.createElement('div');
+        eventBox.className = 'event-box';
+
+        eventBox.innerHTML = `
+            <a href="${event.link}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                <img src="${event.image}" class="event-image" alt="Event Image">
+                <div class="event-details">
+                    <p>${event.description}</p>
+                </div>
+            </a>
+        `;
+        
+        eventList.prepend(eventBox); // Add new event to the top
+    }
+
+    // Fetch events on page load
+    window.onload = fetchEvents;
+</script>
+
+</body>
+</html>
