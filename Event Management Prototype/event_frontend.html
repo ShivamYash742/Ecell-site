@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        .event-box {
+            display: flex;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-bottom: 10px;
+            cursor: pointer; /* Change cursor to pointer */
+        }
+        .event-image {
+            width: 100px;
+            height: 100px;
+            margin-right: 10px;
+        }
+        .event-details {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+
+<h1>Event Management</h1>
+
+<h2>Create New Event</h2>
+<form id="eventForm">
+    <input type="text" id="link" placeholder="Event Link" required>
+    <input type="text" id="description" placeholder="Event Description" required>
+    <input type="text" id="image" placeholder="Image URL" required>
+    <button type="submit">Create Event</button>
+</form>
+
+<h2>Events</h2>
+<div id="eventList"></div>
+
+<script>
+    function formatLink(link) {
+        link = link.trim(); // Trim whitespace
+        if (!/^https?:\/\//i.test(link)) {
+            link = 'http://' + link; // Prepend http:// if not present
+        }
+        return link;
+    }
+
+    document.getElementById('eventForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        
+        const linkInput = document.getElementById('link');
+        const link = formatLink(linkInput.value); // Format the link
+        const description = document.getElementById('description').value;
+        const image = document.getElementById('image').value;
+
+        if (!link) {
+            alert('Please enter a valid link.');
+            return;
+        }
+
+        fetch('http://127.0.0.1:5000/create_event', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ link, description, image })
+        })
+        .then(response => response.json())
+        .then(eventData => {
+            addEventToList(eventData);
+            document.getElementById('eventForm').reset(); // Reset form
+        });
+    });
+
+    function fetchEvents() {
+        fetch('http://127.0.0.1:5000/events')
+            .then(response => response.json())
+            .then(events => {
+                events.forEach(event => addEventToList(event));
+            });
+    }
+
+    function addEventToList(event) {
+        const eventList = document.getElementById('eventList');
+        const eventBox = document.createElement('div');
+        eventBox.className = 'event-box';
+
+        eventBox.innerHTML = `
+            <a href="${event.link}" target="_blank" rel="noopener noreferrer" style="text-decoration: none; color: inherit;">
+                <img src="${event.image}" class="event-image" alt="Event Image">
+                <div class="event-details">
+                    <p>${event.description}</p>
+                </div>
+            </a>
+        `;
+        
+        eventList.prepend(eventBox); // Add new event to the top
+    }
+
+    // Fetch events on page load
+    window.onload = fetchEvents;
+</script>
+
+</body>
+</html>
