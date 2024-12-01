@@ -1,27 +1,49 @@
 import React from "react";
+import ing from "../assets/marketing.png";
 
 const AboutUs = () => {
   return (
-    <section className="flex gap-10 p-16">
-      <div className="text-content w-3/5">
-        <h2 className="text-4xl font-bold mb-5">We're Delivering Only Exceptional Quality Work</h2>
-        <p className="text-base text-gray-600 mb-5">
-          We are formed by a team with extensive experience in innovation and digital transformation.
-          We work mainly in the creation of digital solutions and products.
-        </p>
-        <button className="bg-blue-600 text-white py-3 px-6 rounded hover:bg-blue-500 transition duration-300">Read More</button>
-      </div>
-      <div className="stats w-2/5 bg-blue-600 text-white p-8 rounded-lg">
-        <div className="stat flex flex-col items-center text-center mb-5">
-          <h3 className="text-4xl font-bold mb-2">254+</h3>
-          <p className="text-sm text-gray-200">People</p>
+    <div className="px-[20%] py-8 font-sans">
+      <h1 className="text-4xl font-bold mb-6">
+        We’re Delivering Only Exceptional Quality Work
+      </h1>
+      <div className="flex flex-col md:flex-row mb-6">
+        <div className="md:w-[1350px] mb-4 md:mb-0 md:mr-6">
+          <img src={ing} alt="Team meeting" className="w-full" />
         </div>
-        <div className="stat flex flex-col items-center text-center">
-          <h3 className="text-4xl font-bold mb-2">12</h3>
-          <p className="text-sm text-gray-200">World Offices</p>
+        <div className="flex flex-col">
+          <div className="mb-4">
+            <p>
+              We are formed by a team with extensive experience in innovation
+              and digital transformation. We work mainly in the creation of
+              digital solutions and products based on new technologies in an
+              open innovation model.
+            </p>
+          </div>
+          <div className="mb-4">
+            <p>
+              Our team of creative and technological geeks think and work
+              differently.
+            </p>
+          </div>
+          <div>
+            <a href="#read-more" className="text-blue-500 hover:underline">
+              Read More
+            </a>
+          </div>
         </div>
       </div>
-    </section>
+      <div className="flex flex-col md:flex-row">
+        <div className="bg-blue-700 text-white p-6 mb-4 md:mb-0 md:mr-4 flex-1">
+          <h2 className="text-3xl font-bold">254+</h2>
+          <p>Adipiscing elit, sed do eiusmod.</p>
+        </div>
+        <div className="bg-blue-700 text-white p-6 flex-1">
+          <h2 className="text-3xl font-bold">12</h2>
+          <p>Sed do eiusmod tempor.</p>
+        </div>
+      </div>
+    </div>
   );
 };
 
