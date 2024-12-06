@@ -1,0 +1,39 @@
+Navbar.css
+.dropdown-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  .dropdown-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms, transform 200ms;
+  }
+  .dropdown-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .dropdown-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 200ms, transform 200ms;
+  }
+  
+  .mobile-menu-enter {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  .mobile-menu-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 200ms, transform 200ms;
+  }
+  .mobile-menu-exit {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .mobile-menu-exit-active {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 200ms, transform 200ms;
+  }
+  
