@@ -63,7 +63,7 @@ for post_url in post_urls:
     # Extract the image URL
     try:
         # The image tag might be different, so adjusting to extract 'src' from the proper image element
-        img_element = driver.find_element(By.XPATH, '//img[contains(@class, "_aagt _aagv")]')  # New class or adjust if needed
+        img_element = driver.find_element(By.XPATH, '//div[@class="_aagv"]//img[@class="x5yr21d xu96u03 x10l6tqk x13vifvy x87ps6o xh8yej3"]') # New class or adjust if needed
         img_url = img_element.get_attribute('src')
     except Exception as e:
         img_url = None
@@ -71,30 +71,31 @@ for post_url in post_urls:
 
     # Extract the caption (new XPath)
     try:
-        caption_element = driver.find_element(By.XPATH, '//div[@class="C4VMK"]/span')  # More reliable caption location
+        caption_element = driver.find_element(By.XPATH, '//h1[contains(@class, "_ap3a _aaco _aacu _aacx _aad7 _aade")]')  # More reliable caption location
         caption_text = caption_element.text
     except Exception as e:
         caption_text = None
         print(f"Error extracting caption for post {post_url}: {e}")
 
-    # Save image to local file
-    if img_url:
-        try:
-            # Get image content
-            img_data = requests.get(img_url).content
-            # Extract image name from URL (e.g., 'image.jpg')
-            img_name = os.path.join('images', img_url.split('/')[-1].split('?')[0])  # Ensure no query params
-            # Save image
-            with open(img_name, 'wb') as f:
-                f.write(img_data)
-            print(f"Image saved as {img_name}")
-        except Exception as e:
-            print(f"Error saving image for post {post_url}: {e}")
+    # # Save image to local file
+    # if img_url:
+    #     try:
+    #         # Get image content
+    #         img_data = requests.get(img_url).content
+    #         # Extract image name from URL (e.g., 'image.jpg')
+    #         img_name = os.path.join('images', img_url.split('/')[-1].split('?')[0])  # Ensure no query params
+    #         # Save image
+    #         with open(img_name, 'wb') as f:
+    #             f.write(img_data)
+    #         print(f"Image saved as {img_name}")
+    #     except Exception as e:
+    #         print(f"Error saving image for post {post_url}: {e}")
 
     # Store the data in a dictionary (with image path instead of URL)
     post_details = {
         'post_url': post_url,
-        'image_path': img_name if img_url else None,
+        'image_url':img_url if img_url else None,
+        # 'image_path': img_name if img_url else None,
         'caption': caption_text
     }
 
