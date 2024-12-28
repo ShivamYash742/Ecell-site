@@ -1,41 +1,56 @@
-import React from "react";
-import Header from "./components/Header";
-import Hero from "./components/Hero";
-import AboutUs from "./components/AboutUs";
-import Benefits from "./components/Benefits";
-import Mission from "./components/Mission";
-import Services from "./components/Services";
-import Clients from "./components/Clients";
-import Jumpstart from "./components/Jumpstart";
-import Footer from "./components/Footer";
-import "./App.css";
+import React, { useState, useEffect } from 'react';
+import './App.css';
+import logo from './public/logo.png'
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import HomePage from './components/Homepage';
+import Footer from './components/Footer';
 
 function App() {
+  const [isLoading, setIsLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setIsLoading(false); 
+    }, 2400);
+  }, []);
+  const words = ["Ideate.", "Inspire.", "Invest."];
+  const [currentWordIndex, setCurrentWordIndex] = useState(0);
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 800);
+
+    return () => clearInterval(interval);
+  }, [words.length]);
+  
+
   return (
-    <div className="App">
-      {/* Header Component */}
-      <Header />
+    <div className="relative min-h-screen bg-gray-100 ">
+      {/* Loading Screen */}
+      <div className=''>
+        {isLoading && (
+          <div className="absolute inset-0 grid justify-center items-center bg-black bg-opacity-80 min-h-screen">
+          <div >
+            <img className='rounded-full w-64' src={logo} alt="logo" />
+          </div>
+          <div className='text-white text-5xl w-full text-center'>
+          {words[currentWordIndex]}
+          </div>
+          </div>
+        )}
+      </div>
 
-      {/* Hero Section */}
-      <Hero />
+      {/* Main Content */}
+      <div className='overflow-hidden'>
+        {!isLoading && (
+          <Router>
+            <Navbar  />
+            <HomePage />
+            <Footer />
+          </Router>
+        )}
+      </div>
 
-      {/* About Us Section */}
-      <AboutUs />
-
-      {/* Mission Section */}
-      <Mission />
-
-      {/* Mission Section */}
-      <Services />
-
-      {/* Clients Section */}
-      <Clients />
-
-      {/* Jumpstart Section */}
-      <Jumpstart />
-
-      {/* Footer Section */}
-      <Footer />
     </div>
   );
 }
