@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>EVENTS</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
-    <link rel="stylesheet" href = "/style2.css" >
-    <link rel="stylesheet" href="/stylo.css">
+
+    <link rel="stylesheet" href="style.css">
     <link rel="icon" type="image/x-icon" href="/images/logo.png">
-    
 </head>
+
 <body>
-    
     <div class="hmenu">
         <div class="head">
             <div class="hlogo"><img src="images/logo.png" alt="">
@@ -204,62 +204,6 @@
             </div>
             <div id="load-more"> Load More </div>
         </div>
-        
-    <h2 class ="head" >Social Feed</h2>
-    <div class="container" id="postContainer">
-        <% posts.slice(0, 3).forEach(post => { %>
-            <div class="post">
-                <div class="image-container">
-                    <img src="<%= post.local_image_url %>" 
-                         alt="Instagram Post"
-                         onerror="this.src='/images/placeholder.jpg'">
-                </div>
-                <div class="content">
-                    <p class="caption"><%= post.caption %></p>
-                    <a href="<%= post.post_url %>" target="_blank" rel="noopener noreferrer" class="post-link">
-                        View on Instagram →
-                    </a>
-                </div>
-            </div>
-        <% }) %>
-    </div>
-    <div class="load-more"  style="margin-left: auto; margin-right: auto; display: block; width: fit-content;">
-        <button onclick="loadMore()">Load More</button>
-    </div>
-
-    <script>
-        let currentIndex = 3;
-        const posts = <%- JSON.stringify(posts) %>;
-        const postContainer = document.getElementById('postContainer');
-
-        function loadMore() {
-            const remainingPosts = posts.slice(currentIndex, currentIndex + 2); // Load one card at a time
-            remainingPosts.forEach(post => {
-                const postElement = document.createElement('div');
-                postElement.classList.add('post');
-                postElement.innerHTML = `
-                    <div class="image-container">
-                        <img src="${post.local_image_url}" 
-                             alt="Instagram Post" 
-                             onerror="this.src='/images/placeholder.jpg'">
-                    </div>
-                    <div class="content">
-                        <p class="caption">${post.caption}</p>
-                        <a href="${post.post_url}" target="_blank" rel="noopener noreferrer" class="post-link">
-                            View on Instagram →
-                        </a>
-                    </div>
-                `;
-                postContainer.appendChild(postElement);
-            });
-
-            currentIndex += 2;
-            if (currentIndex >= posts.length) {
-                document.getElementById('loadMoreContainer').style.display = 'none';
-            }
-        }
-        
-    </script>
         <div class="gallery">
             <h2>Gallery</h2>
             <div class="carousels">
@@ -329,9 +273,7 @@
         integrity="sha512-7eHRwcbYkK4d9g/6tD/mhkf++eoTHwpNM9woBxtPUBWm67zeAfFC+HrdoE2GanKeocly/VxeLvIqwvCdk7qScg=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.0/ScrollTrigger.min.js"></script>
-    <script src="/script.js"></script>
- 
+    <script src="script.js"></script>
 </body>
+
 </html>
- 
- 
