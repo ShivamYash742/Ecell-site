@@ -6,14 +6,14 @@
     <title>Instagram Posts</title>
     <style>
         :root {
-            --bg-primary: #f4f4f4; /* Light gray background */
-            --bg-secondary: #ffffff; /* White background for cards */
-            --accent-primary: #000080; /* Navy blue */
-            --accent-secondary: #6fa3ef; /* Lighter navy accent */
-            --text-primary: #333333; /* Dark gray text */
-            --text-secondary: #666666; /* Light gray text */
-            --card-bg: #ffffff; /* White background for cards */
-            --glow-color: rgba(0, 0, 128, 0.2); /* Soft navy glow */
+            --bg-primary: #f4f4f4;
+            --bg-secondary: #ffffff;
+            --accent-primary: #000080;
+            --accent-secondary: #6fa3ef;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --card-bg: #ffffff;
+            --glow-color: rgba(0, 0, 128, 0.2);
         }
 
         body {
@@ -146,30 +146,9 @@
             overflow: hidden;
         }
 
-        .post-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(
-                45deg,
-                transparent,
-                rgba(0, 0, 128, 0.1),
-                transparent
-            );
-            transform: translateX(-100%);
-            transition: transform 0.5s ease;
-        }
-
         .post-link:hover {
             background: rgba(0, 0, 128, 0.15);
             transform: translateY(-2px);
-        }
-
-        .post-link:hover::before {
-            transform: translateX(100%);
         }
 
         @media (max-width: 768px) {
@@ -191,42 +170,26 @@
                 transform: translateY(-5px);
             }
         }
-
-        @media (prefers-reduced-motion: reduce) {
-            .post,
-            .post-link,
-            .post img {
-                transition: none;
-            }
-            
-            .post:hover {
-                transform: none;
-            }
-            
-            .post:hover img {
-                transform: none;
-            }
-        }
     </style>
 </head>
 <body>
     <h1>Latest Instagram Posts</h1>
     <div class="container">
-        ${postsWithLocalImages.map(post => 
+        <% posts.forEach(post => { %>
             <div class="post">
                 <div class="image-container">
-                    <img src="${post.local_image_url}" 
+                    <img src="<%= post.local_image_url %>" 
                          alt="Instagram Post"
                          onerror="this.src='/images/placeholder.jpg'">
                 </div>
                 <div class="content">
-                    <p class="caption">${post.caption}</p>
-                    <a href="${post.post_url}" target="_blank" rel="noopener noreferrer" class="post-link">
+                    <p class="caption"><%= post.caption %></p>
+                    <a href="<%= post.post_url %>" target="_blank" rel="noopener noreferrer" class="post-link">
                         View on Instagram →
                     </a>
                 </div>
             </div>
-        ).join('')}
+        <% }) %>
     </div>
 </body>
 </html>
