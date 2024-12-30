@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React to HTML</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to your CSS -->
+    <style>
+        /* The provided CSS */
+        .App {
+            text-align: center;
+        }
+
+        .App-logo {
+            height: 40vmin;
+            pointer-events: none;
+        }
+
+        @media (prefers-reduced-motion: no-preference) {
+            .App-logo {
+                animation: App-logo-spin infinite 20s linear;
+            }
+        }
+
+        .App-header {
+            background-color: #282c34;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: calc(10px + 2vmin);
+            color: white;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                clip-path: inset(100% 100% 0 0);
+            }
+
+            to {
+                opacity: 1;
+                clip-path: inset(0 0 0 0);
+            }
+        }
+
+        .block {
+            animation: appear linear;
+            animation-timeline: view();
+            animation-range: entry 0% cover 40%;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Additional Custom Styling */
+        body {
+            background-color: #f7fafc;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Loading Screen */
+        #loadingScreen {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            justify-items: center;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.8);
+            min-height: 100vh;
+        }
+
+        #loadingText {
+            color: white;
+            font-size: 5rem;
+            text-align: center;
+        }
+
+        #mainContent {
+            display: none;
+        }
+
+        /* Navbar */
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            margin: 0;
+            background-color: #282c34;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: #61dafb;
+        }
+
+        section {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        footer {
+            padding: 1rem;
+            background-color: #282c34;
+            color: white;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+    <div class="App">
+        <!-- Loading Screen -->
+        <div id="loadingScreen" class="block">
+            <img class="App-logo" src="public/logo.png" alt="logo" />
+            <div id="loadingText">Ideate.</div>
+        </div>
+
+        <!-- Main Content (Hidden initially) -->
+        <div id="mainContent">
+            <header class="App-header">
+                <!-- Navbar -->
+                <nav>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </nav>
+            </header>
+
+            <!-- Home Section -->
+            <section id="home">
+                <h1 class="text-4xl">Welcome to the Home Page</h1>
+                <!-- Add your homepage content here -->
+            </section>
+
+            <!-- About Us Section -->
+            <section id="about">
+                <h1 class="text-4xl">About Us</h1>
+                <!-- Add your About Us content here -->
+            </section>
+
+            <!-- Events Section -->
+            <section id="events">
+                <h1 class="text-4xl">Events</h1>
+                <!-- Add your Events content here -->
+            </section>
+
+            <!-- Contact Us Section -->
+            <section id="contact">
+                <h1 class="text-4xl">Contact Us</h1>
+                <!-- Add your Contact Us content here -->
+            </section>
+
+            <footer>
+                <p>© 2024 Your Company Name</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        // Handle Loading Screen and Word Change
+        const words = ["Ideate.", "Inspire.", "Invest.", "Innovate."];
+        let currentWordIndex = 0;
+        const loadingText = document.getElementById("loadingText");
+
+        // Change words every 800ms
+        setInterval(() => {
+            currentWordIndex = (currentWordIndex + 1) % words.length;
+            loadingText.textContent = words[currentWordIndex];
+        }, 800);
+
+        // Simulate loading and hide loading screen after 3 seconds
+        setTimeout(() => {
+            document.getElementById("loadingScreen").classList.add("hidden");
+            document.getElementById("mainContent").classList.remove("hidden");
+        }, 3000);
+    </script>
+</body>
+
+</html>
