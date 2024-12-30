@@ -45,11 +45,11 @@
             transform: translateX(-50%);
             width: 100px;
             height: 2px;
-            background: linear-gradient(90deg, 
+            /* background: linear-gradient(90deg, 
                 transparent, 
                 var(--accent-primary), 
                 transparent
-            );
+            ); */
             border-radius: 2px;
         }
 
@@ -170,12 +170,32 @@
                 transform: translateY(-5px);
             }
         }
+        .load-more {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        .load-more button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            background-color: var(--accent-primary);
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .load-more button:hover {
+            background-color: var(--accent-secondary);
+        }
     </style>
 </head>
 <body>
     <h1>Latest Instagram Posts</h1>
-    <div class="container">
-        <% posts.forEach(post => { %>
+    <div class="container" id="postContainer">
+        <% posts.slice(0, 4).forEach(post => { %>
             <div class="post">
                 <div class="image-container">
                     <img src="<%= post.local_image_url %>" 
@@ -191,5 +211,41 @@
             </div>
         <% }) %>
     </div>
+    <div class="load-more" id="loadMoreContainer">
+        <button onclick="loadMore()">Load More</button>
+    </div>
+
+    <script>
+        let currentIndex = 4;
+        const posts = <%- JSON.stringify(posts) %>;
+        const postContainer = document.getElementById('postContainer');
+
+        function loadMore() {
+            const remainingPosts = posts.slice(currentIndex, currentIndex + 1); // Load one card at a time
+            remainingPosts.forEach(post => {
+                const postElement = document.createElement('div');
+                postElement.classList.add('post');
+                postElement.innerHTML = `
+                    <div class="image-container">
+                        <img src="${post.local_image_url}" 
+                             alt="Instagram Post" 
+                             onerror="this.src='/images/placeholder.jpg'">
+                    </div>
+                    <div class="content">
+                        <p class="caption">${post.caption}</p>
+                        <a href="${post.post_url}" target="_blank" rel="noopener noreferrer" class="post-link">
+                            View on Instagram →
+                        </a>
+                    </div>
+                `;
+                postContainer.appendChild(postElement);
+            });
+
+            currentIndex += 1;
+            if (currentIndex >= posts.length) {
+                document.getElementById('loadMoreContainer').style.display = 'none';
+            }
+        }
+    </script>
 </body>
 </html>

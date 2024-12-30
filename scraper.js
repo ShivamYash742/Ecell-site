@@ -65,7 +65,7 @@ async function scrapeInstagramPosts(profileUrl) {
         // Get first 5 post URLs
         const postUrls = await page.evaluate(() => {
             const links = Array.from(document.querySelectorAll('a[href*="/p/"]'));
-            return links.slice(0, 5).map(link => link.href);
+            return links.slice(0, 8).map(link => link.href);
         });
 
         // Visit each post and extract data
