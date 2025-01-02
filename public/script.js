@@ -244,13 +244,13 @@ gsap.from(".gallery h2", {
     }
 })
 gsap.from(".head", {
-    y: 200,               // Start with the element 200px below
+    y: 150,               // The element starts 150px below its original position
     opacity: 0,           // Start with opacity 0 (invisible)
     duration: 1,          // The animation duration is 1 second
     scrollTrigger: {      // ScrollTrigger configuration
-        trigger: ".head", // The trigger element is now the .head class (the h2 element)
-        start: "top 90%",  // Start the animation when the top of the element reaches 80% of the viewport
-        end: "top 80%",    // End the animation when the top of the element reaches 70% of the viewport
-        scrub: 4,          // Scrubbing to tie the animation to the scroll with a 4-second delay
+        trigger: ".head", // Trigger animation when `.head` enters the viewport
+        start: "top 90%", // Start animation when the top of `.head` is at 90% of the viewport height
+        end: "top 70%",   // End animation when the top of `.head` reaches 60% of the viewport height
+        scrub: 4,         // Smooth animation tied to scroll progress
     }
 });
