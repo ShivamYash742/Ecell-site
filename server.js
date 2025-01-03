@@ -76,6 +76,20 @@ app.get('/contactus', (req, res) => {
     const filePath = path.join(__dirname, 'public', 'contactus.html');
     res.sendFile(filePath);
 });
+app.get('/team', (req, res) => {
+    const filePath = path.join(__dirname, 'public', 'Ecell-Team-/index.html');
+    res.sendFile(filePath);
+});
+app.get('/services', (req, res) => {
+    const filePath = path.join(__dirname, 'public', '/Ecell-service//index.html');
+    res.sendFile(filePath);
+});
+app.use(express.static(path.join(__dirname, 'build')));
+
+// Handle all other routes with React's index.html
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
  
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
