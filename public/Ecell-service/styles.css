@@ -1,0 +1,93 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scrolling */
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    color: white;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    background-image: url("dark.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 100vh;
+}
+
+
+#services {
+    padding: 0.5px;
+    text-align: center;
+}  
+
+.service {
+    background-color: rgba(252, 250, 250, 0.1);
+    border-radius: 40px 0 40px 0;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    height: 20%;
+}
+
+
+.divv{
+    /* color: rgb(29, 52, 122); */
+    color: #fff;
+    
+}
+.cardText{
+    height: 40%;
+}
+.cardText p{
+    font-size: 1rem;
+    color: #fff;
+
+}
+
+.pbot {
+    
+    padding-bottom: 50px;
+
+    }
+.pic img{
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+@media (max-width: 1000px) {
+    .d-flex {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .service {
+        margin: 10px 0;
+    }
+}
+
+@media (max-width: 971px) {
+    h1 {
+        font-size: 1.9rem;
+    }
+
+    h4 {
+        font-size: 1.9rem;
+    }
+
+    .service .cardText h3 {
+        font-size: 1.5rem;
+    }
+
+    .service .cardText p {
+        font-size: 1.25rem;
+    }
+
+    .service .pic img {
+        width: 100%; /* Ensure images are responsive */
+        height: auto;
+    }
+}
+

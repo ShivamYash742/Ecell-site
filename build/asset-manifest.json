@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/static/css/main.25065f0d.css",
+    "main.js": "/static/js/main.42c0eea1.js",
+    "static/js/453.bb828c5d.chunk.js": "/static/js/453.bb828c5d.chunk.js",
+    "static/media/IMG_1188.mp4": "/static/media/IMG_1188.9bc933835bffc3f33120.mp4",
+    "static/media/IMG_3029.JPG": "/static/media/IMG_3029.ed989a41a4547a3fb9f5.JPG",
+    "static/media/IMG_2094.JPG": "/static/media/IMG_2094.d153e7c291f437f3f25c.JPG",
+    "static/media/IMG_4617.JPG": "/static/media/IMG_4617.661a5c8476b083a3717c.JPG",
+    "static/media/Bill_Van_Heyst.png": "/static/media/Bill_Van_Heyst.525cdecaca46bdc26d5e.png",
+    "static/media/linkedin.png": "/static/media/linkedin.a7cd15cbc5fd0ba7a3eb.png",
+    "static/media/instagram.png": "/static/media/instagram.7305b6adc50ff92549a5.png",
+    "index.html": "/index.html",
+    "main.25065f0d.css.map": "/static/css/main.25065f0d.css.map",
+    "main.42c0eea1.js.map": "/static/js/main.42c0eea1.js.map",
+    "453.bb828c5d.chunk.js.map": "/static/js/453.bb828c5d.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.25065f0d.css",
+    "static/js/main.42c0eea1.js"
+  ]
+}

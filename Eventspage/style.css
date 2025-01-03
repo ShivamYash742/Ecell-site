@@ -1,0 +1,655 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+    & a {
+        text-decoration: none;
+    }
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+html,
+body {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    position: relative;
+    background-color: white;
+}
+
+.hmenu {
+    display: none;
+}
+
+.ham {
+    display: none;
+}
+
+/* <--------------Navbar-------------> */
+
+nav {
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: rgb(11, 11, 113);
+    /* background: rgb(11, 11, 113); */
+    /* background: linear-gradient(to right, rgb(59, 130, 246), rgb(139, 92, 246)); */
+    height: 56px;
+    width: 100%;
+    padding: 30px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+
+    & ul {
+        display: flex;
+        list-style-type: none;
+        gap: 20px;
+
+        & li a {
+            font-family: "Poppins", sans-serif;
+            font-weight: 700;
+            color: white;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.navlogo {
+    display: flex;
+    align-items: center;
+    font-family: "Prompt", sans-serif;
+    gap: 20px;
+
+    & h2 {
+        font-size: 1.8rem;
+    }
+
+    & img {
+        height: 50px;
+        width: 56px;
+    }
+}
+
+
+/* <--------------heroSection-------------> */
+.herosection {
+    height: 100vh;
+    color: white;
+    background-color: #212121;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+
+    & h1 {
+        clip-path: polygon(0 0, 100% 0, 100% 77%, 0% 77%);
+        font-family: "Prompt", sans-serif;
+        font-size: 6rem;
+        display: flex;
+    }
+}
+
+.heroOverlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(10, 2, 125, 0.187);
+}
+
+.video {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+
+    & video {
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+    }
+}
+
+/* <--------------EventSection-------------> */
+
+.eventsection {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+    width: 100%;
+    padding: 60px 0;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 25vw);
+    gap: 50px 50px;
+    justify-self: center;
+    padding: 10px;
+}
+
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent 0%, black 100%);
+    position: relative;
+
+    & img {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        object-fit: cover;
+        z-index: -1;
+    }
+}
+
+.show {
+    display: flex !important;
+}
+
+.box {
+    border-radius: 20px;
+    height: 75vh;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+
+    & h3 {
+        padding: 10px;
+        z-index: 10;
+        color: white;
+        text-align: center;
+        font-size: 1.7rem;
+        position: absolute;
+        font-family: "Prompt", sans-serif;
+        bottom: 30px;
+    }
+}
+
+.info {
+    position: absolute;
+    background-color: rgb(11, 11, 113);
+    z-index: 11;
+    padding: 20px;
+    color: white;
+    font-family: "Prompt", sans-serif;
+    height: 100%;
+    display: flex;
+    top: 100%;
+    flex-direction: column;
+    gap: 20px;
+
+    & h4 {
+        font-size: 1.38rem;
+        font-weight: 700;
+        display: flex;
+        justify-content: center;
+    }
+
+    & p {
+        font-size: 0.8rem;
+        font-family: "Poppins", sans-serif;
+    }
+}
+
+.icons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+
+    & span {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        font-weight: 600;
+    }
+
+    & img {
+        height: 2.4rem;
+        width: 2.4rem;
+    }
+}
+
+#load-more {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 13px 30px;
+    border: 1px solid #334;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-family: "Prompt", sans-serif;
+    border-radius: 10px;
+    background-color: rgb(11, 11, 113);
+    cursor: pointer;
+}
+
+#load-more:hover {
+    background-color: rgb(40, 40, 129);
+}
+
+
+/* <--------------gallery-------------> */
+
+.gallery {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+
+    & h2 {
+        color: rgb(11, 11, 113);
+        font-size: 4rem;
+        font-family: "Prompt", sans-serif;
+    }
+}
+
+.caoursels {
+    width: 100%;
+    padding-top: 20px;
+}
+
+.carousel {
+    width: 100%;
+    margin: 0px auto;
+}
+
+.slick-slide {
+    margin: 3px;
+    /* width: 200px; */
+    position: relative;
+    height: 340px;
+    overflow: hidden;
+}
+
+.slick-slide img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border: 2px solid #fff;
+}
+
+.wl {
+    margin: 40px 0 0 0;
+    clip-path: polygon(0 11%, 100% 0, 100% 100%, 0 89%);
+}
+
+.wr {
+    clip-path: polygon(0 0, 100% 11%, 100% 89%, 0 100%);
+
+}
+
+/* <--------------Footer-------------> */
+
+footer {
+    margin-top: 100px;
+    background-color: rgb(11, 11, 113);
+    width: 100%;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+
+    & .footerTop {
+        width: 90%;
+        display: flex;
+        justify-content: space-around;
+    }
+}
+
+.left {
+    display: flex;
+    justify-content: space-around;
+    width: 60%;
+    gap: 50px;
+
+    & .top {
+        width: 60%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        & img {
+            height: 125px;
+            width: 135px;
+        }
+    }
+
+    & .contact {
+        & h3 {
+            display: flex;
+            font-family: "Prompt", sans-serif;
+            font-size: 1.6rem;
+            align-items: center;
+        }
+
+        & p {
+            font-family: "Poppins", sans-serif;
+            font-size: 1.2rem;
+        }
+    }
+}
+
+.right {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    width: 40%;
+
+    & ul {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 06px;
+
+        & li a {
+            font-family: "Poppins", sans-serif;
+            color: white;
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+    }
+
+    & h3 {
+        font-family: "Prompt", sans-serif;
+        font-size: 1.6rem;
+    }
+}
+
+.ficon {
+    height: 20px;
+    width: 20px;
+}
+
+.footerMid {
+    background-color: white;
+    width: 90%;
+    height: 2px;
+}
+
+.footerBottom {
+    font-family: "Poppins", sans-serif;
+    font-size: 1rem;
+}
+
+@media (max-width: 1028px) {
+    .hmenu {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        color: white;
+        z-index: 14;
+        height: 100%;
+        width: 100%;
+        background-color: #0b0b71;
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 60px;
+
+        & .head {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+
+            & .hlogo {
+                display: flex;
+                align-items: center;
+                font-family: "Prompt", sans-serif;
+                gap: 20px;
+
+                & img {
+                    height: 100px;
+                    width: 120px;
+                }
+
+                & h2 {
+                    font-size: 3rem;
+                }
+            }
+
+            & .cross {
+                position: absolute;
+                top: 30px;
+                right: 30px;
+                height: 40px;
+            }
+        }
+    }
+
+    .ham {
+        display: flex;
+        height: 40px;
+        width: 40px;
+    }
+
+    .hbody {
+        width: 100%;
+        padding: 0 20px;
+
+        & ul {
+            list-style-type: none;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+
+            & li a {
+                color: white;
+                font-family: "Poppins", sans-serif;
+                font-size: 2.5rem;
+                font-weight: 700;
+            }
+        }
+    }
+
+    nav {
+        position: fixed;
+        justify-content: space-between;
+        height: 70px;
+        padding: 0 40px;
+
+        & .navlinks {
+            display: none;
+        }
+    }
+
+    .herosection {
+        height: 110vh;
+    }
+
+    .container {
+        grid-template-columns: 90vw;
+    }
+
+    .box {
+        height: 60vh;
+    }
+}
+
+@media (max-width: 450px) {
+    .hmenu {
+        & .head {
+
+            & .hlogo {
+                gap: 20px;
+
+                & img {
+                    height: 70px;
+                    width: 70px;
+                }
+
+                & h2 {
+                    font-size: 2rem;
+                }
+            }
+
+            & .cross {
+                height: 30px;
+            }
+        }
+    }
+
+    .hbody {
+        & ul {
+            & li a {
+                font-size: 2rem;
+            }
+        }
+    }
+
+    nav {
+        padding: 0 10px;
+    }
+
+    .wl {
+        margin: 40px 0 0 0;
+        clip-path: polygon(0 4%, 100% 0, 100% 100%, 0 96%);
+    }
+
+    .wr {
+        clip-path: polygon(0 0, 100% 4%, 100% 96%, 0 100%);
+
+    }
+
+    footer {
+        gap: 50px;
+        padding: 20px 10px;
+    }
+
+    .footerTop {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .left {
+        flex-direction: column;
+        width: 100%;
+        gap: 20px;
+
+        & .top {
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            & img {
+                height: 120px;
+                width: 120px;
+            }
+        }
+
+        & .contact {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: left;
+            gap: 10px;
+
+            & h3 {
+                font-size: 2rem;
+            }
+
+            & p {
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    .right {
+        flex-direction: column;
+        gap: 20px;
+
+        & h3 {
+            font-family: "Prompt", sans-serif;
+            font-size: 2rem;
+        }
+
+        & ul li a {
+            font-size: 1.5rem;
+        }
+    }
+
+    .ficon {
+        height: 20px;
+        width: 20px;
+    }
+
+    .footerBottom {
+        font-size: 0.7rem;
+    }
+}
+
+@media (max-width: 370px) {
+    .ham {
+        height: 30px;
+        width: 30px;
+    }
+
+    .herosection {
+        & h1 {
+            font-size: 4.5rem;
+        }
+
+    }
+
+    footer {
+        gap: 30px;
+    }
+
+
+    .left {
+        & .top {
+            & img {
+                height: 100px;
+                width: 100px;
+            }
+        }
+
+        & .contact {
+            & h3 {
+                font-size: 1.8rem;
+            }
+
+            & p {
+                font-size: 1.2rem;
+            }
+        }
+    }
+
+    .right {
+        & h3 {
+            font-size: 1.7rem;
+        }
+
+        & ul li a {
+            font-size: 1.2rem;
+        }
+    }
+
+    .footerBottom {
+        font-size: 0.6rem;
+    }
+}
